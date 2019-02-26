@@ -17,17 +17,18 @@ class InputViewController: UIViewController, UIScrollViewDelegate {
         return scrollView
     }()
     
-    let nextButton: UIButton = {
+    let analyseButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("解析する", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.backgroundColor = UIColor.secondaryTeal()
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 25
-        button.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(analyseButtonPressed), for: .touchUpInside)
         return button
     }()
-    let inputTextView = InputTextView()
+    var sampleView: SampleView!
+    var inputTextView: InputTextView!
     
     //MARK: Property
     var viewModel = TextAnalysisViewModel()
@@ -62,7 +63,7 @@ class InputViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentOffset.y = 0
     }
     
-    @objc private func nextButtonPressed() {
+    @objc private func analyseButtonPressed() {
         if inputTextView.getText().count <= 0 {
             displayAlert()
             return
@@ -81,23 +82,33 @@ class InputViewController: UIViewController, UIScrollViewDelegate {
     
     private func createView() {
         view.backgroundColor = .white
-        
         view.addSubview(scrollView)
         scrollView.anchorViewTo(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         
-        let sampleView = SampleView()
+        createSampleView()
+        createInputTextview()
+        createAnaylseButton()
+    }
+    
+    private func createSampleView() {
+        sampleView = SampleView()
         scrollView.addSubview(sampleView)
         sampleView.anchorViewWithConstantsTo(top: scrollView.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 20, leftConstant: 8, bottomConstant: 0, rightConstant: 8)
         sampleView.anchorViewWithHeightConstant(height: 120)
-        
+    }
+    
+    private func createInputTextview() {
+        inputTextView = InputTextView()
         scrollView.addSubview(inputTextView)
         inputTextView.anchorViewWithConstantsTo(top: sampleView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 12, leftConstant: 8, bottomConstant: 0, rightConstant: 8)
         inputTextView.anchorViewWithHeightConstant(height: 200)
-        
-        scrollView.addSubview(nextButton)
-        nextButton.anchorViewWithConstantsTo(top: inputTextView.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 40, leftConstant: 0, bottomConstant: 0, rightConstant: 0)
-        nextButton.centerViewWithX(x: view.centerXAnchor)
-        nextButton.anchorViewWithHeightAndWidthConstant(height: 50, width: 120)
+    }
+    
+    private func createAnaylseButton() {
+        scrollView.addSubview(analyseButton)
+        analyseButton.anchorViewWithConstantsTo(top: inputTextView.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 40, leftConstant: 0, bottomConstant: 0, rightConstant: 0)
+        analyseButton.centerViewWithX(x: view.centerXAnchor)
+        analyseButton.anchorViewWithHeightAndWidthConstant(height: 50, width: 120)
     }
     
     private func displayAlert() {
