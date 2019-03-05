@@ -38,18 +38,22 @@ class TextAnalysisViewModel: NSObject {
         }
     }
     
+    func getOutputText() -> String? {
+        guard let words = words, words.count > 0 else {
+            return nil
+        }
+        let rubyTextArray = words.map({ $0.reading })
+        let rubyText = rubyTextArray.joined()
+        return rubyText
+    }
+    
     func getInputTextHeight() -> CGFloat {
         return getEstimatedStringHeight(text: inputText, textSize: 14)
     }
     
     func getOutputTextHeight() -> CGFloat {
-        guard let words = words, words.count > 0 else {
-            return 0
-        }
-        let rubyTextArray = words.map({ $0.reading })
-        let rubyText = rubyTextArray.joined()
-        outputText = rubyText
-        return getEstimatedStringHeight(text: rubyText, textSize: 16)
+        guard let text = getOutputText() else { return 0 }
+        return getEstimatedStringHeight(text: text, textSize: 16)
     }
     
     private func getEstimatedStringHeight(text: String, textSize: CGFloat) -> CGFloat {

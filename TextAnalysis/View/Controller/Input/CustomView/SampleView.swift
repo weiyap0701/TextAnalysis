@@ -12,8 +12,8 @@ import UIKit
 class SampleView: BaseInputView {
 
     //MARK: UI
-    var inputLabel: UILabel!
-    var outputLabel: UILabel!
+    private var inputLabel: UILabel!
+    private var outputLabel: UILabel!
     
     //MARK: Function
     override func createView() {

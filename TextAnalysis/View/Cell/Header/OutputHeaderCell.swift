@@ -26,7 +26,7 @@ class OutputHeaderCell: UICollectionViewCell {
                 return
             }
             inputTextView.text = vm.inputText
-            outputTextView.text = vm.outputText
+            outputTextView.text = vm.getOutputText()
             inputTextViewHeightConstraint.constant = vm.getInputTextHeight()
             outputTextViewHeightConstraint.constant = vm.getOutputTextHeight()
         }
