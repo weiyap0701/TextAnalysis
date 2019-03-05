@@ -17,11 +17,17 @@ class TextAnalysisViewModel: NSObject {
     private(set) var words: [OutputCellViewModel]?
     private(set) var outputText: String?
     private(set) var displayError: Bool = false
+    private let apiService: APIService
     var inputText: String = ""
+    
+    //MARK: Life Cycle
+    override init() {
+        self.apiService = APIService()
+    }
     
     //MARK: Function
     func analyseText() {
-        APIService.shared.analyseText(withText: inputText) { (words, error) in
+        apiService.analyseText(withText: inputText) { (words, error) in
             if let err = error {
                 self.errorMessage = err.localizedDescription
                 self.displayError = true

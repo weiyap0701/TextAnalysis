@@ -12,7 +12,6 @@ import Foundation
 class APIService: NSObject, XMLParserDelegate {
     
     //MARK: Property
-    static let shared = APIService()
     private let appId = "dj00aiZpPXV2VWhLQ3FYNzNRZiZzPWNvbnN1bWVyc2VjcmV0Jng9YjM-"
     private lazy var urlString = "https://jlp.yahooapis.jp/MAService/V1/parse?appid=\(appId)&results=ma&sentence="
     private var analyseTextCompletion: (([Word]?, Error?) -> Void)?
