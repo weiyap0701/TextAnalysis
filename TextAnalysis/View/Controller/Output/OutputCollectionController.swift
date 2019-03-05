@@ -12,8 +12,8 @@ import UIKit
 class OutputCollectionController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     //MARK: UI
-    var loadingView: LoadingView!
-    var errorView: ErrorView!
+    private var loadingView: LoadingView!
+    private var errorView: ErrorView!
     
     //MARK: Property
     var viewModel: TextAnalysisViewModel!

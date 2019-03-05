@@ -27,8 +27,8 @@ class InputViewController: UIViewController, UIScrollViewDelegate {
         button.addTarget(self, action: #selector(analyseButtonPressed), for: .touchUpInside)
         return button
     }()
-    var sampleView: SampleView!
-    var inputTextView: InputTextView!
+    private var sampleView: SampleView!
+    private var inputTextView: InputTextView!
     
     //MARK: Property
     var viewModel = TextAnalysisViewModel()

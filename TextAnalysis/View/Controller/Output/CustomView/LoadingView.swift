@@ -12,11 +12,11 @@ import UIKit
 class LoadingView: UIView {
     
     //MARK: UI
-    var conView1 = UIView()
-    var conView2 = UIView()
-    var conView3 = UIView()
-    var conView4 = UIView()
-    var conView5 = UIView()
+    private var conView1 = UIView()
+    private var conView2 = UIView()
+    private var conView3 = UIView()
+    private var conView4 = UIView()
+    private var conView5 = UIView()
     
     //MARK: Life Cycle
     override init(frame: CGRect) {

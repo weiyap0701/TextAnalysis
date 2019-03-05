@@ -11,7 +11,7 @@ import Foundation
 class OutputCellViewModel: NSObject {
     
     //MARK: Property
-    var word: Word
+    private(set) var word: Word
     var surface: String {
         return word.surface
     }

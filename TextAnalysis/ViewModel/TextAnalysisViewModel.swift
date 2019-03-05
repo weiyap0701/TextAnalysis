@@ -12,13 +12,12 @@ import UIKit
 class TextAnalysisViewModel: NSObject {
     
     //MARK: Property
-    var dataUpdatedEvent = Event()
-    
-    var errorMessage: String = "Please try again later."
+    private(set) var dataUpdatedEvent = Event()
+    private(set) var errorMessage: String = "Please try again later."
+    private(set) var words: [OutputCellViewModel]?
+    private(set) var outputText: String?
+    private(set) var displayError: Bool = false
     var inputText: String = ""
-    var words: [OutputCellViewModel]?
-    var outputText: String?
-    var displayError: Bool = false
     
     //MARK: Function
     func analyseText() {
