@@ -29,9 +29,13 @@
 		E54D49DF2223E65700B3FA8B /* OutputHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54D49DE2223E65700B3FA8B /* OutputHeaderCell.xib */; };
 		E54D49E322240E5900B3FA8B /* OutputCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54D49E222240E5900B3FA8B /* OutputCollectionViewCell.swift */; };
 		E54D49E522240EB600B3FA8B /* OutputCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54D49E422240EB600B3FA8B /* OutputCollectionViewCell.xib */; };
+		FA59A4089FD5A1E6B573A2C6 /* Pods_TextAnalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5456054D938CCEFE3AC33C55 /* Pods_TextAnalysis.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0805B60D28B28260C47B48AB /* Pods-TextAnalysis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextAnalysis.release.xcconfig"; path = "Pods/Target Support Files/Pods-TextAnalysis/Pods-TextAnalysis.release.xcconfig"; sourceTree = "<group>"; };
+		3ADF1460452603ECA1E65131 /* Pods-TextAnalysis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextAnalysis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TextAnalysis/Pods-TextAnalysis.debug.xcconfig"; sourceTree = "<group>"; };
+		5456054D938CCEFE3AC33C55 /* Pods_TextAnalysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TextAnalysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E533CDF6222414D600130EF3 /* OutputCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputCellViewModel.swift; sourceTree = "<group>"; };
 		E533CDF82224150700130EF3 /* OutputCollectionController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OutputCollectionController+CollectionView.swift"; sourceTree = "<group>"; };
 		E533CDFB222416AC00130EF3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -63,12 +67,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA59A4089FD5A1E6B573A2C6 /* Pods_TextAnalysis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		358ABB16D88FD276C8A35CF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5456054D938CCEFE3AC33C55 /* Pods_TextAnalysis.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7352B19EAE6998886D02D08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3ADF1460452603ECA1E65131 /* Pods-TextAnalysis.debug.xcconfig */,
+				0805B60D28B28260C47B48AB /* Pods-TextAnalysis.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E533CDFA2224169A00130EF3 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +105,8 @@
 			children = (
 				E54D49A62222BA6B00B3FA8B /* TextAnalysis */,
 				E54D49A52222BA6B00B3FA8B /* Products */,
+				C7352B19EAE6998886D02D08 /* Pods */,
+				358ABB16D88FD276C8A35CF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,9 +266,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E54D49B62222BA6D00B3FA8B /* Build configuration list for PBXNativeTarget "TextAnalysis" */;
 			buildPhases = (
+				12F0E4FC390564FFC9BFC34C /* [CP] Check Pods Manifest.lock */,
 				E54D49A02222BA6B00B3FA8B /* Sources */,
 				E54D49A12222BA6B00B3FA8B /* Frameworks */,
 				E54D49A22222BA6B00B3FA8B /* Resources */,
+				DDC57E34095486C45551B593 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -301,6 +327,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12F0E4FC390564FFC9BFC34C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TextAnalysis-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDC57E34095486C45551B593 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TextAnalysis/Pods-TextAnalysis-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TextAnalysis/Pods-TextAnalysis-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E54D49A02222BA6B00B3FA8B /* Sources */ = {
@@ -460,10 +533,12 @@
 		};
 		E54D49B72222BA6D00B3FA8B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3ADF1460452603ECA1E65131 /* Pods-TextAnalysis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZNWG9763SC;
 				INFOPLIST_FILE = TextAnalysis/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -480,10 +555,12 @@
 		};
 		E54D49B82222BA6D00B3FA8B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0805B60D28B28260C47B48AB /* Pods-TextAnalysis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZNWG9763SC;
 				INFOPLIST_FILE = TextAnalysis/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
