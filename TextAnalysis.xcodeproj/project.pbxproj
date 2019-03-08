@@ -29,6 +29,7 @@
 		E54D49DF2223E65700B3FA8B /* OutputHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54D49DE2223E65700B3FA8B /* OutputHeaderCell.xib */; };
 		E54D49E322240E5900B3FA8B /* OutputCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54D49E222240E5900B3FA8B /* OutputCollectionViewCell.swift */; };
 		E54D49E522240EB600B3FA8B /* OutputCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54D49E422240EB600B3FA8B /* OutputCollectionViewCell.xib */; };
+		E56057AA2232B31100D879C4 /* TextRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56057A92232B31100D879C4 /* TextRouter.swift */; };
 		FA59A4089FD5A1E6B573A2C6 /* Pods_TextAnalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5456054D938CCEFE3AC33C55 /* Pods_TextAnalysis.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		E54D49DE2223E65700B3FA8B /* OutputHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutputHeaderCell.xib; sourceTree = "<group>"; };
 		E54D49E222240E5900B3FA8B /* OutputCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputCollectionViewCell.swift; sourceTree = "<group>"; };
 		E54D49E422240EB600B3FA8B /* OutputCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutputCollectionViewCell.xib; sourceTree = "<group>"; };
+		E56057A92232B31100D879C4 /* TextRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		E54D49CF2223CB9400B3FA8B /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				E56057A92232B31100D879C4 /* TextRouter.swift */,
 				E54D49D02223CBA700B3FA8B /* APIService.swift */,
 			);
 			path = APIService;
@@ -384,6 +387,7 @@
 				E54D49C32222D79400B3FA8B /* SampleView.swift in Sources */,
 				E533CDF7222414D600130EF3 /* OutputCellViewModel.swift in Sources */,
 				E54D49BF2222D74E00B3FA8B /* Helper+UIView.swift in Sources */,
+				E56057AA2232B31100D879C4 /* TextRouter.swift in Sources */,
 				E533CDFC222416AC00130EF3 /* LoadingView.swift in Sources */,
 				E54D49DD2223E64500B3FA8B /* OutputHeaderCell.swift in Sources */,
 				E54D49C52222E70600B3FA8B /* BaseInputView.swift in Sources */,

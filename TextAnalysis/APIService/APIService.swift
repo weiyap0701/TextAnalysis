@@ -7,13 +7,11 @@
 //
 
 import Foundation
-
+import Alamofire
 
 class APIService: NSObject, XMLParserDelegate {
     
     //MARK: Property
-    private let appId = "dj00aiZpPXV2VWhLQ3FYNzNRZiZzPWNvbnN1bWVyc2VjcmV0Jng9YjM-"
-    private lazy var urlString = "https://jlp.yahooapis.jp/MAService/V1/parse?appid=\(appId)&results=ma&sentence="
     private var analyseTextCompletion: (([Word]?, Error?) -> Void)?
     
     private var currentElement: String = ""
@@ -25,27 +23,23 @@ class APIService: NSObject, XMLParserDelegate {
 
     //MARK: Function
     func analyseText(withText text: String, completion: @escaping([Word]?, Error?) -> Void) {
-        
-        guard let completeUrlString = (urlString + text).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-        guard let url = URL(string: completeUrlString) else { return }
         analyseTextCompletion = completion
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        Alamofire.request(TextRouter.analyse(text)).responseData { data in
             
-            if error != nil {
-                completion(nil, error)
+            guard data.result.isSuccess else {
+                completion(nil, data.error)
                 return
             }
-            guard let xmlData = data else {
+            
+            guard let xmlData = data.result.value else {
                 completion(nil, nil)
                 return
             }
+            
             let xmlParser = XMLParser.init(data: xmlData)
             xmlParser.delegate = self
             xmlParser.parse()
-            
-        }.resume()
-        
+        }
     }
     
     //MARK: XMLParser Delegate
